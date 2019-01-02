@@ -1,0 +1,98 @@
+
+<!-- {% if res is not 0 %}
+<script> alert("{% if not  res %}Not a {% endif %} Potential  applicant  for loan ");
+</script>
+{% endif %} -->
+{% if res is not 0 %}
+ <h4 style='text-align:center;text-transform:capitalize;color: orange ;'>
+   {% if not  res %}Not a {% endif %} Potential  applicant  for loan
+ </h4>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Loan Prediction Model</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 style='text-align:center;'>  Loan Prediction Model</h1>
+<div class="container">
+  <form action='' method='POST'>
+<div class='row'>
+  <h1>
+  <a href='/train' style="vertical-align:top;"class="btn btn-default">Train model</a>  <button type="submit" style='float:right;' class="btn btn-default">Submit</button>
+  </h1>
+  <div class='col-md-6'>
+    {% csrf_token %}
+    {% for item in  txt_item %}
+    <div class="form-group">
+      <label for="text">{{item}}:</label>
+      <input type="number" class="form-control" id="email" placeholder="Enter {{item}}" value='' name="{{item}}" required>
+    </div>
+    {% endfor %}
+    <div class="form-group">
+        <label for="sel1">Select Gender:</label>
+        <select class="form-control"name='Gender' id="sel1">
+            <option value='1'>Male</option>
+            <option value='0'>Female</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <label for="sel1">Martial Status :</label>
+            <select class="form-control"name='Married' id="sel1">
+                <option value='0'>Married</option>
+                <option value='1'>Not Married</option>
+            </select>
+            </div>
+  </div>
+  <div class= 'col-md-6'>
+
+        <div class="form-group">
+                <label for="sel1">Dependents:</label>
+                <select class="form-control"name='Dependents' id="sel1">
+                    <option value='0'>0</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3+</option>
+                </select>
+                </div>
+        <div class="form-group">
+                    <label for="sel1">Education:</label>
+                    <select class="form-control"name='Education' id="sel1">
+                        <option value='0'>Graduate</option>
+                        <option value='1'>Not Graduate</option>
+                    </select>
+                    </div>
+        <div class="form-group">
+                        <label for="sel1">Self Employed:</label>
+                        <select class="form-control"name='Self_Employed' id="sel1">
+                            <option value='1'>Yes</option>
+                            <option value='0'>No</option>
+                        </select>
+                        </div>
+        <div class="form-group">
+                            <label for="sel1">Credit_History:</label>
+                            <select class="form-control"name='Credit_History' id="sel1">
+                                <option value='1'>yes</option>
+                                <option value='0'>No</option>
+                            </select>
+                            </div>
+        <div class="form-group">
+                                <label for="sel1">Property_Area:</label>
+                                <select class="form-control"name='Property_Area' id="sel1">
+                                    <option value='0'>Rural</option>
+                                    <option value='1'>Urban</option>
+                                    <option value='2'>Semi Urban</option>
+                                </select>
+                                </div>
+  </div>
+</div>
+  </form>
+</div>
+
+</body>
+</html>
